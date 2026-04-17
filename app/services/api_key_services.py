@@ -20,7 +20,7 @@ def get_single_api(api_id):
     
     return api_data
 
-def update_student(api_id:int,update_data):
+def update_api(api_id:int,update_data):
     api_data = api_collection.find_one({"_id":api_id})
     if api_data==None:
         raise HTTPException(status_code=404 , detail="api Not found")

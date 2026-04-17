@@ -6,8 +6,8 @@ from app.dependencies.auth_dep import get_current_user
 router = APIRouter(prefix="/Api_Mangement", tags=["Api_Mangement"])
 
 @router.post("/create")
-def create(student: APIKey, user=Depends(get_current_user)):
-    create_api(student.dict())
+def create(api_key: APIKey, user=Depends(get_current_user)):
+    create_api(api_key.dict())
     return {"msg": "api created"}
 
 @router.get("/view")
@@ -24,4 +24,4 @@ def delete_api_data(api_id : int,user=Depends(get_current_user)):
 
 @router.put("/update/{api_id}")
 def upadte_api_data(api_id : int,activate :bool,user=Depends(get_current_user)):
-    return update_student(api_id,activate)
+    return update_api(api_id,activate)
