@@ -17,7 +17,7 @@ def login(user: User):
     db_user = authenticate_user(user.email, user.password)
 
     if not db_user:
-        raise HTTPException(status_code=400, detail="Invalid credentials")
+        raise HTTPException(status_code=401, detail="Invalid credentials")
 
     access_token = create_access_token({"sub": db_user["email"]})
     refresh_token = create_refresh_token({"sub": db_user["email"]})

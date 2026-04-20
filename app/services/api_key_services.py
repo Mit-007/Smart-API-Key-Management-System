@@ -16,7 +16,7 @@ def get_all_api():
 def get_single_api(api_id):
     api_data = api_collection.find_one({"_id":api_id})
     if api_data==None:
-        raise HTTPException(status_code=404 , detail="api Not found")
+        raise HTTPException(status_code=404, detail="api Not found")
     
     return api_data
 
@@ -31,7 +31,7 @@ def update_api(api_id:int,update_data):
     )
 
     if update_data==True :
-        return{"msg" : "api activated "}
+        return{"msg" : "api activated"}
 
     return {"msg": "api deactivated"}
 
